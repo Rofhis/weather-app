@@ -1,4 +1,4 @@
-package com.rofhiwa.weatherapp.util
+package com.rofhiwa.weatherapp.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
