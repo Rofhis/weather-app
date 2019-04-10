@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.dashboard.DashboardFragment"
     >
@@ -11,11 +12,180 @@
         />
   </data>
 
-  <TextView
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:id="@+id/appbar_layout_activity"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:gravity="center"
-      android:text="Dashboard Fragment"
-      />
+      android:background="@color/colorCreamWhite"
+      >
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+      <com.google.android.material.appbar.CollapsingToolbarLayout
+          android:id="@+id/collapsing_toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:layout_scrollFlags="scroll|exitUntilCollapsed"
+          >
+
+        <LinearLayout
+            android:id="@+id/page_nme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="48dp"
+            android:height="250dp"
+            android:orientation="vertical"
+            android:padding="24dp"
+            app:layout_collapseMode="parallax"
+            >
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="8dp"
+              android:text="@string/lbl_current_weather"
+              android:textColor="@color/colorWhite"
+              android:textSize="12sp"
+              />
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="8dp"
+              android:textColor="@color/colorWhite"
+              android:textSize="32sp"
+              android:textStyle="bold"
+              tools:text="Pretoria"
+              />
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="16dp"
+              android:textColor="@color/colorWhite"
+              android:textSize="16sp"
+              tools:text="Gauteng, South Africa"
+              />
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              >
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="start"
+                android:contentDescription="@string/app_name"
+                android:tint="@color/colorWhite"
+                tools:src="@drawable/rainy"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end|center_vertical"
+                android:textColor="@color/colorWhite"
+                android:textSize="44sp"
+                tools:text="17.5 \u2103"
+                />
+          </LinearLayout>
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="end|center_vertical"
+              android:textColor="@color/colorWhite"
+              android:textSize="14sp"
+              tools:text="Patchy rain possible"
+              />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            style="@style/ToolBarStyle"
+            />
+      </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="16dp"
+          app:cardBackgroundColor="@color/colorWhite"
+          app:cardCornerRadius="4dp"
+          app:cardElevation="4dp"
+          app:contentPadding="16dp"
+          >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+          <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:label="Wind Speed"
+              app:text="9.2km/h"
+              />
+
+          <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:label="Wind Degree"
+              app:text="45\u00B0"
+              />
+
+          <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:label="Wind Direction"
+              app:text="NE"
+              />
+
+          <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:label="Humidity"
+              app:text="55"
+              />
+
+          <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:label="Cloud"
+              app:text="77"
+              />
+
+          <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:label="Last Updated"
+              app:text="2019-04-10 11:55"
+              />
+
+        </LinearLayout>
+      </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

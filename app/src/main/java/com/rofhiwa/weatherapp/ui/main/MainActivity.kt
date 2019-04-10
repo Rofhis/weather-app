@@ -10,12 +10,6 @@ class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-
-    val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-
-    setSupportActionBar(binding.mainToolbar)
-
-    actionBar?.title = getString(R.string.app_name)
-
+    DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
   }
 }

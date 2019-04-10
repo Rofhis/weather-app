@@ -9,7 +9,7 @@ const val CITY_TABLE_NAME = "city"
 @Entity(tableName = CITY_TABLE_NAME, indices = [Index(value = ["cityName"], unique = true)])
 data class CityEntity(
   @PrimaryKey
-  var id: Long = 0L,
+  var id: Long,
   var cityName: String,
   var region: String,
   var country: String,

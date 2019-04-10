@@ -35,6 +35,7 @@ class TestCityDaoTest {
     fun testInsertData() {
 
         val cityEntity = CityEntity(
+            id = 23,
             cityName = "Pretoria",
             region = "Gauteng",
             country = "South Africa",

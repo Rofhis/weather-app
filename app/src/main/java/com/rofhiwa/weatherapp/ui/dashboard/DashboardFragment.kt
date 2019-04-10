@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.rofhiwa.weatherapp.BR
-
 import com.rofhiwa.weatherapp.R
 import com.rofhiwa.weatherapp.databinding.FragmentDashboardBinding
 import com.rofhiwa.weatherapp.ui.base.BaseFragment
@@ -30,6 +30,12 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     super.onCreateView(inflater, container, savedInstanceState)
 
     val binding = getViewDataBinding()
+    val appCompatActivity = (requireActivity() as AppCompatActivity)
+
+//    appCompatActivity.setSupportActionBar(binding.mainToolbar)
+//    appCompatActivity.supportActionBar?.title = getString(R.string.app_name)
+
+    dashboardViewModel.getWeatherFromNetwork("Pretoria")
 
     return binding.root
   }

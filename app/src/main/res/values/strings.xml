@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="app_name">Weather App</string>
+  <string name="degree">\u00B0</string>
+  <string name="degree_celsius">\u2103</string>
+  <string name="degree_fahrenheit">\u2109</string>
+  <string name="lbl_current_weather">Current weather</string>
 </resources>

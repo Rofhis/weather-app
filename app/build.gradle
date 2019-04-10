@@ -47,7 +47,7 @@ android {
 ext {
   appcompatVersion = "1.0.2"
   legacySupportVersion = "1.0.0"
-  androidCoreVersion = "1.0.1"
+  androidCoreVersion = '1.0.1'
   constraintlayoutVersion = "1.1.3"
   junitVersion = "4.12"
   junitExtVersion = "1.1.0"
@@ -64,6 +64,9 @@ ext {
   testRunnerVersion = '1.1.0-alpha4'
   testRulesVersion = '1.1.1'
   navigationVersion = '1.0.0'
+  timberVersion = "4.7.1"
+  materialVersion = "1.0.0"
+  stethoVersion = "1.5.0"
 }
 
 dependencies {
@@ -73,6 +76,7 @@ dependencies {
   implementation "androidx.core:core-ktx:$androidCoreVersion"
   implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
   implementation "androidx.legacy:legacy-support-v4:$legacySupportVersion"
+  implementation "com.google.android.material:material:$materialVersion"
 
   //JUnit
   testImplementation "junit:junit:$junitVersion"
@@ -109,14 +113,21 @@ dependencies {
 
   //LifeCycle libraries
   implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+  kapt "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
 
   //RxJava & RxAndroid
   implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
   implementation "io.reactivex.rxjava2:rxandroid:$rxJavaAndroidVersion"
 
   //Databinding compiler
-  kapt "com.android.databinding:compiler:$gradleVersion"
+  kapt "androidx.databinding:databinding-compiler:$gradleVersion"
 
   //navigation component
   implementation "android.arch.navigation:navigation-fragment:$navigationVersion"
+
+  //Timber Logging
+  implementation "com.jakewharton.timber:timber:$timberVersion"
+
+  //Stetho
+  implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
 }
