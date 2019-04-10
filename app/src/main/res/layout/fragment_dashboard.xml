@@ -20,7 +20,7 @@
       >
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+        android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -30,6 +30,8 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           app:layout_scrollFlags="scroll|exitUntilCollapsed"
+          app:title="Pretoria"
+          app:titleEnabled="false"
           >
 
         <LinearLayout
@@ -59,7 +61,7 @@
               android:textColor="@color/colorWhite"
               android:textSize="32sp"
               android:textStyle="bold"
-              tools:text="Pretoria"
+              android:text="Pretoria"
               />
 
           <TextView
@@ -68,7 +70,7 @@
               android:layout_marginBottom="16dp"
               android:textColor="@color/colorWhite"
               android:textSize="16sp"
-              tools:text="Gauteng, South Africa"
+              android:text="Gauteng, South Africa"
               />
 
           <LinearLayout
@@ -83,7 +85,7 @@
                 android:layout_gravity="start"
                 android:contentDescription="@string/app_name"
                 android:tint="@color/colorWhite"
-                tools:src="@drawable/rainy"
+                android:src="@drawable/rainy"
                 />
 
             <TextView
@@ -92,7 +94,7 @@
                 android:gravity="end|center_vertical"
                 android:textColor="@color/colorWhite"
                 android:textSize="44sp"
-                tools:text="17.5 \u2103"
+                android:text="17.5 \u2103"
                 />
           </LinearLayout>
 
@@ -102,7 +104,7 @@
               android:gravity="end|center_vertical"
               android:textColor="@color/colorWhite"
               android:textSize="14sp"
-              tools:text="Patchy rain possible"
+              android:text="Patchy rain possible"
               />
 
         </LinearLayout>

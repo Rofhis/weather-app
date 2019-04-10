@@ -39,10 +39,6 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatA
      */
     abstract fun getViewModel(): V
 
-
-    override fun onFragmentAttached() {
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()

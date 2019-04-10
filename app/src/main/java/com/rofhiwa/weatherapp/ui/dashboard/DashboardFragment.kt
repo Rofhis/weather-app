@@ -1,5 +1,6 @@
 package com.rofhiwa.weatherapp.ui.dashboard
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.rofhiwa.weatherapp.BR
 import com.rofhiwa.weatherapp.R
 import com.rofhiwa.weatherapp.databinding.FragmentDashboardBinding
 import com.rofhiwa.weatherapp.ui.base.BaseFragment
+import com.google.android.material.appbar.AppBarLayout
 
 class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewModel>() {
 
@@ -30,10 +32,12 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
     super.onCreateView(inflater, container, savedInstanceState)
 
     val binding = getViewDataBinding()
-    val appCompatActivity = (requireActivity() as AppCompatActivity)
 
-//    appCompatActivity.setSupportActionBar(binding.mainToolbar)
-//    appCompatActivity.supportActionBar?.title = getString(R.string.app_name)
+    binding.collapsingToolbar.setCollapsedTitleTextColor(Color.WHITE)
+
+    binding.appbarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+      binding.collapsingToolbar.isTitleEnabled = Math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0
+    })
 
     dashboardViewModel.getWeatherFromNetwork("Pretoria")
 
