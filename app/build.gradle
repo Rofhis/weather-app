@@ -64,7 +64,6 @@ ext {
   testRunnerVersion = '1.1.0-alpha4'
   testRulesVersion = '1.1.1'
   navigationVersion = '1.0.0'
-  timberVersion = "4.7.1"
   materialVersion = "1.0.0"
   stethoVersion = "1.5.0"
 }
@@ -124,9 +123,6 @@ dependencies {
 
   //navigation component
   implementation "android.arch.navigation:navigation-fragment:$navigationVersion"
-
-  //Timber Logging
-  implementation "com.jakewharton.timber:timber:$timberVersion"
 
   //Stetho
   implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"

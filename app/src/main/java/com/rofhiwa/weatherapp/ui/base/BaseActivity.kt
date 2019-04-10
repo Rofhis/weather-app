@@ -14,7 +14,7 @@ import androidx.databinding.ViewDataBinding
 import com.rofhiwa.weatherapp.utils.NetworkUtils
 
 @SuppressLint("Registered")
-abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity(), BaseFragment.Callback {
+abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity() {
 
     private lateinit var mViewDataBinding: T
     private lateinit var mViewModel: V

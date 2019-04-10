@@ -4,24 +4,26 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-const val WEATHER_TABLE_NAME = "weather"
+const val CITY_TABLE_NAME = "city_weather"
 
-@Entity(tableName = WEATHER_TABLE_NAME, indices = [Index(value = ["cityId"], unique = true)])
-data class WeatherEntity(
+@Entity(tableName = CITY_TABLE_NAME, indices = [Index(value = ["cityName"], unique = true)])
+data class CityWeatherEntity(
   @PrimaryKey(autoGenerate = true)
   var id: Long = 0L,
-  var cityId: Long,
   var cityName: String,
-  var temperatureMin: Double,
-  var temperatureMax: Double,
+  var region: String,
+  var country: String,
+  var latitude: Double,
+  var longitude: Double,
+  var temperatureCelsius: Double,
+  var temperatureFahrenheit: Double,
   var pressure: Double,
   var humidity: Long,
   var clouds: Long,
+  var windDegree: Int,
   var windSpeed: Double,
   var windDirection: String,
-  var rain: Long,
-  var snow: Long,
-  var icon: String,
+  var conditionIcon: String,
   var conditionCode: Long,
   var conditionLabel: String,
   var isDay: Int,

@@ -5,6 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+  <data>
+    <variable
+        name="viewModel"
+        type="com.rofhiwa.weatherapp.ui.main.MainViewModel"
+        />
+  </data>
+
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"

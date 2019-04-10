@@ -4,4 +4,11 @@
   <string name="degree_celsius">\u2103</string>
   <string name="degree_fahrenheit">\u2109</string>
   <string name="lbl_current_weather">Current weather</string>
+  <string name="msg_location_permission_required">This app requires location to be able to work</string>
+  <string name="lbl_last_updated">Last Updated</string>
+  <string name="lbl_cloud">Cloud</string>
+  <string name="lbl_humidity">Humidity</string>
+  <string name="lbl_wind_direction">Wind Direction</string>
+  <string name="lbl_wind_degree">Wind Degree</string>
+  <string name="lbl_wind_speed">Wind Speed</string>
 </resources>

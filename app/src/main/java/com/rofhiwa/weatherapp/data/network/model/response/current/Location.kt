@@ -3,9 +3,6 @@ package com.rofhiwa.weatherapp.data.network.model.response.current
 import com.google.gson.annotations.SerializedName
 
 data class Location(
-  @SerializedName("localtime_epoch")
-  var cityId: Long,
-
   @SerializedName("name")
   var cityName: String,
 

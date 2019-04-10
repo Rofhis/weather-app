@@ -7,7 +7,11 @@ import android.location.LocationListener
 import android.os.Bundle
 import android.os.IBinder
 import android.location.LocationManager
-import android.util.Log
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+
+const val ACTION_LOCATION_BROADCAST = "location"
+const val EXTRA_LATITUDE = "latitude"
+const val EXTRA_LONGITUDE = "longitude"
 
 class LocationService : Service(), LocationListener {
 
@@ -15,11 +19,18 @@ class LocationService : Service(), LocationListener {
     getSystemService(LOCATION_SERVICE) as LocationManager
   }
 
+  private val broadcastReceiver: LocalBroadcastManager by lazy {
+    LocalBroadcastManager.getInstance(applicationContext)
+  }
+
+  private val newIntent: Intent by lazy {
+    Intent(ACTION_LOCATION_BROADCAST)
+  }
+
   @Throws(SecurityException::class)
   fun getCurrentLocation(): Location? {
 
     val provider = LocationManager.NETWORK_PROVIDER
-
     if (locationManager.isProviderEnabled(provider)) {
       locationManager.requestLocationUpdates(provider, MIN_TIME_FOR_UPDATE, MIN_DISTANCE_FOR_UPDATE, this)
       return locationManager.getLastKnownLocation(provider)
@@ -29,8 +40,11 @@ class LocationService : Service(), LocationListener {
 
   override fun onCreate() {
     super.onCreate()
+
     getCurrentLocation()?.let { location ->
-      Log.d("Last known Location", "Lat: ${location?.latitude} - Lon: ${location?.longitude}")
+      newIntent.putExtra(EXTRA_LATITUDE, location.latitude)
+      newIntent.putExtra(EXTRA_LONGITUDE, location.longitude)
+      broadcastReceiver.sendBroadcast(newIntent)
     }
   }
 
@@ -44,7 +58,11 @@ class LocationService : Service(), LocationListener {
   }
 
   override fun onLocationChanged(location: Location?) {
-    Log.d("Location update", "Lat: ${location?.latitude} - Lon: ${location?.longitude}")
+    location?.let {
+      newIntent.putExtra(EXTRA_LATITUDE, it.latitude)
+      newIntent.putExtra(EXTRA_LONGITUDE, it.longitude)
+      broadcastReceiver.sendBroadcast(newIntent)
+    }
   }
 
   override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {}

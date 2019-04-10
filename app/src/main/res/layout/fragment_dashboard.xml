@@ -30,12 +30,10 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           app:layout_scrollFlags="scroll|exitUntilCollapsed"
-          app:title="Pretoria"
           app:titleEnabled="false"
           >
 
         <LinearLayout
-            android:id="@+id/page_nme"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="48dp"
@@ -55,22 +53,22 @@
               />
 
           <TextView
+              android:id="@+id/txt_city_name"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginBottom="8dp"
               android:textColor="@color/colorWhite"
               android:textSize="32sp"
               android:textStyle="bold"
-              android:text="Pretoria"
               />
 
           <TextView
+              android:id="@+id/txt_region_and_country_name"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginBottom="16dp"
               android:textColor="@color/colorWhite"
               android:textSize="16sp"
-              android:text="Gauteng, South Africa"
               />
 
           <LinearLayout
@@ -80,31 +78,32 @@
               >
 
             <ImageView
+                android:id="@+id/condition_icon"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:layout_gravity="start"
                 android:contentDescription="@string/app_name"
-                android:tint="@color/colorWhite"
                 android:src="@drawable/rainy"
+                android:tint="@color/colorWhite"
                 />
 
             <TextView
+                android:id="@+id/txt_temperature"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="end|center_vertical"
                 android:textColor="@color/colorWhite"
                 android:textSize="44sp"
-                android:text="17.5 \u2103"
                 />
           </LinearLayout>
 
           <TextView
+              android:id="@+id/condition_label"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="end|center_vertical"
               android:textColor="@color/colorWhite"
               android:textSize="14sp"
-              android:text="Patchy rain possible"
               />
 
         </LinearLayout>
@@ -145,45 +144,45 @@
             >
 
           <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:id="@+id/txt_wind_speed"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:label="Wind Speed"
-              app:text="9.2km/h"
+              app:label="@string/lbl_wind_speed"
               />
 
           <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:id="@+id/txt_wind_degree"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:label="Wind Degree"
-              app:text="45\u00B0"
+              app:label="@string/lbl_wind_degree"
               />
 
           <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:id="@+id/txt_wind_direction"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:label="Wind Direction"
-              app:text="NE"
+              app:label="@string/lbl_wind_direction"
               />
 
           <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:id="@+id/txt_humidity"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:label="Humidity"
-              app:text="55"
+              app:label="@string/lbl_humidity"
               />
 
           <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:id="@+id/txt_clouds"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:label="Cloud"
-              app:text="77"
+              app:label="@string/lbl_cloud"
               />
 
           <com.rofhiwa.weatherapp.ui.custom.LabelTextView
+              android:id="@+id/txt_last_updated"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              app:label="Last Updated"
-              app:text="2019-04-10 11:55"
+              app:label="@string/lbl_last_updated"
               />
 
         </LinearLayout>
