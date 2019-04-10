@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import com.rofhiwa.weatherapp.BR
 import com.rofhiwa.weatherapp.R
 import com.rofhiwa.weatherapp.databinding.FragmentDashboardBinding
@@ -55,9 +56,15 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding, DashboardViewMo
       dataBinding.collapsingToolbar.title = cityWeather.cityName
       dataBinding.txtCityName.text = cityWeather.cityName
       dataBinding.txtRegionAndCountryName.text = String.format("%s, %s", cityWeather.region, cityWeather.country)
-      dataBinding.txtTemperature.text = String.format("%d%s", cityWeather.temperatureCelsius.roundToInt(), requireActivity().getString(R.string.degree_celsius))
+      dataBinding.txtTemperature.text = String.format(
+        "%d%s",
+        cityWeather.temperatureCelsius.roundToInt(),
+        requireActivity().getString(R.string.degree_celsius)
+      )
 
-      dataBinding.conditionIcon.setImageURI(Uri.parse(cityWeather.conditionIcon))
+      Glide.with(this)
+        .load("https:${cityWeather.conditionIcon}")
+        .into(dataBinding.conditionIcon)
 
       dataBinding.conditionLabel.text = cityWeather.conditionLabel
       dataBinding.txtClouds.setText(cityWeather.clouds.toString())
