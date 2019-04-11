@@ -33,7 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
   @Inject
   lateinit var localBroadcastManager: LocalBroadcastManager
 
-  lateinit var mainViewModel: MainViewModel
+  private lateinit var mainViewModel: MainViewModel
 
   private lateinit var binding: ActivityMainBinding
 
@@ -41,7 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     Intent(this, LocationService::class.java)
   }
 
-  private fun initiateLocationService() {
+  private fun startLocationService() {
     startService(locationServiceIntent)
     binding.progressBarLabel.text = getString(string.getting_your_location)
   }
@@ -65,10 +65,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     binding = getViewDataBinding()
 
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-      initiateLocationService()
+      startLocationService()
     } else {
       if (hasPermission(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-        initiateLocationService()
+        startLocationService()
       } else {
         requestPermissionsSafely(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
       }
@@ -94,7 +94,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     when (requestCode) {
       LOCATION_PERMISSION_REQUEST_CODE -> {
         if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-          initiateLocationService()
+          startLocationService()
         } else {
           applicationContext.showLongToast(getString(string.msg_location_permission_required))
         }

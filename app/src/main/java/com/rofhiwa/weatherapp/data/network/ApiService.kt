@@ -10,17 +10,4 @@ interface ApiService {
   @GET("current.json")
   fun getCurrent(@Query("key") apiKey: String, @Query("q") query: String): Flowable<CurrentWeatherResponse>
 
-  @GET("forecast.json")
-  fun getFocust(
-    @Query("key") apiKey: String, @Query("q") query: String, @Query(
-        "days"
-    ) numberOfDays: Int
-  ): Flowable<CurrentWeatherResponse>
-
-  @GET("search.json")
-  fun search(@Query("key") apiKey: String, @Query("q") query: String): Flowable<CurrentWeatherResponse>
-
-  @GET("history.json")
-  fun getHistory(@Query("key") apiKey: String, @Query("q") query: String): Flowable<CurrentWeatherResponse>
-
 }

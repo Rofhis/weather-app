@@ -10,7 +10,3 @@ fun Context.showShortToast(message: String) {
 fun Context.showLongToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
-
-fun Context.getDimen(dimenId: Int): Int {
-    return resources.getDimension(dimenId).toInt()
-}
