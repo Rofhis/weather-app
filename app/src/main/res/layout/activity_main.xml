@@ -12,7 +12,7 @@
         />
   </data>
 
-  <LinearLayout
+  <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
@@ -28,5 +28,33 @@
         app:navGraph="@navigation/nav_graph"
         />
 
-  </LinearLayout>
+    <LinearLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+      <ProgressBar
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:indeterminate="true"
+          />
+
+      <TextView
+          android:id="@+id/progress_bar_label"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:textSize="16sp"
+          android:gravity="center"
+          android:textColor="@color/colorPrimary"
+          tools:text="@string/app_name"
+          />
+
+    </LinearLayout>
+  </RelativeLayout>
 </layout>

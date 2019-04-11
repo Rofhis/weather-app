@@ -1,17 +1,16 @@
 package com.rofhiwa.weatherapp.ui.base
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseViewModel(application: Application) : AndroidViewModel(application) {
+abstract class BaseViewModel : ViewModel() {
 
-    val mCompositeDisposable: CompositeDisposable = CompositeDisposable()
+  val mCompositeDisposable: CompositeDisposable = CompositeDisposable()
 
-    override fun onCleared() {
-        if (!mCompositeDisposable.isDisposed) {
-            mCompositeDisposable.dispose()
-        }
-        super.onCleared()
+  override fun onCleared() {
+    if (!mCompositeDisposable.isDisposed) {
+      mCompositeDisposable.dispose()
     }
+    super.onCleared()
+  }
 }

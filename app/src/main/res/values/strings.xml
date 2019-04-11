@@ -3,6 +3,7 @@
   <string name="degree">\u00B0</string>
   <string name="degree_celsius">\u2103</string>
   <string name="degree_fahrenheit">\u2109</string>
+  <string name="percentage_sign">&#x0025;</string>
   <string name="lbl_current_weather">Current weather</string>
   <string name="msg_location_permission_required">This app requires location to be able to work</string>
   <string name="lbl_last_updated">Last Updated</string>
@@ -11,4 +12,6 @@
   <string name="lbl_wind_direction">Wind Direction</string>
   <string name="lbl_wind_degree">Wind Degree</string>
   <string name="lbl_wind_speed">Wind Speed</string>
+  <string name="msg_current_weather">Getting current weather…</string>
+  <string name="getting_your_location">Getting your location…</string>
 </resources>

@@ -8,6 +8,8 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.rofhiwa.weatherapp.MainApplication
+import com.rofhiwa.weatherapp.di.components.ApplicationComponent
 import com.rofhiwa.weatherapp.ui.main.MainActivity
 
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
@@ -37,7 +39,15 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
    */
   abstract fun getViewModel(): V
 
+  /**
+   * Override for performing dependency injection
+   *
+   */
+  abstract fun performDependencyInjection(component: ApplicationComponent)
+
   override fun onCreate(savedInstanceState: Bundle?) {
+    val component = (requireActivity().applicationContext as MainApplication).component
+    performDependencyInjection(component)
     super.onCreate(savedInstanceState)
     setHasOptionsMenu(false)
     mainActivity = (requireActivity() as MainActivity)

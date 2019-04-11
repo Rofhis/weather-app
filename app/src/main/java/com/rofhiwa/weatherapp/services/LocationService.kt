@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.os.IBinder
 import android.location.LocationManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.rofhiwa.weatherapp.MainApplication
+import javax.inject.Inject
 
 const val ACTION_LOCATION_BROADCAST = "location"
 const val EXTRA_LATITUDE = "latitude"
@@ -15,13 +17,11 @@ const val EXTRA_LONGITUDE = "longitude"
 
 class LocationService : Service(), LocationListener {
 
-  private val locationManager: LocationManager by lazy {
-    getSystemService(LOCATION_SERVICE) as LocationManager
-  }
+  @Inject
+  lateinit var locationManager: LocationManager
 
-  private val broadcastReceiver: LocalBroadcastManager by lazy {
-    LocalBroadcastManager.getInstance(applicationContext)
-  }
+  @Inject
+  lateinit var localBroadcastManager: LocalBroadcastManager
 
   private val newIntent: Intent by lazy {
     Intent(ACTION_LOCATION_BROADCAST)
@@ -41,10 +41,12 @@ class LocationService : Service(), LocationListener {
   override fun onCreate() {
     super.onCreate()
 
+    (application as MainApplication).component.inject(this)
+
     getCurrentLocation()?.let { location ->
       newIntent.putExtra(EXTRA_LATITUDE, location.latitude)
       newIntent.putExtra(EXTRA_LONGITUDE, location.longitude)
-      broadcastReceiver.sendBroadcast(newIntent)
+      localBroadcastManager.sendBroadcast(newIntent)
     }
   }
 
@@ -61,7 +63,7 @@ class LocationService : Service(), LocationListener {
     location?.let {
       newIntent.putExtra(EXTRA_LATITUDE, it.latitude)
       newIntent.putExtra(EXTRA_LONGITUDE, it.longitude)
-      broadcastReceiver.sendBroadcast(newIntent)
+      localBroadcastManager.sendBroadcast(newIntent)
     }
   }
 

@@ -60,6 +60,7 @@
               android:textColor="@color/colorWhite"
               android:textSize="32sp"
               android:textStyle="bold"
+              tools:text="Rosebank"
               />
 
           <TextView
@@ -69,6 +70,7 @@
               android:layout_marginBottom="16dp"
               android:textColor="@color/colorWhite"
               android:textSize="16sp"
+              tools:text="Gauteng, South Africa"
               />
 
           <LinearLayout
@@ -79,13 +81,12 @@
 
             <ImageView
                 android:id="@+id/condition_icon"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:layout_gravity="start"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/rainy"
                 android:scaleType="centerCrop"
-                android:tint="@color/colorWhite"
+                tools:src="@drawable/cloudy"
                 />
 
             <TextView
@@ -94,7 +95,8 @@
                 android:layout_height="match_parent"
                 android:gravity="end|center_vertical"
                 android:textColor="@color/colorWhite"
-                android:textSize="44sp"
+                android:textSize="40sp"
+                tools:text="12.2C"
                 />
           </LinearLayout>
 
@@ -105,6 +107,7 @@
               android:gravity="end|center_vertical"
               android:textColor="@color/colorWhite"
               android:textSize="14sp"
+              tools:text="Overcast"
               />
 
         </LinearLayout>
@@ -115,8 +118,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_collapseMode="pin"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            style="@style/ToolBarStyle"
+            app:navigationIcon="@drawable/ic_wb_sunny_black_24dp"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/colorWhite"
             />
       </com.google.android.material.appbar.CollapsingToolbarLayout>
 
